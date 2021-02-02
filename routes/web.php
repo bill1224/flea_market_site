@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QnaController;
 use App\Http\Controllers\CommentController;
-
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UploadFileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +43,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('qna', QnaController::class)->middleware('auth');
 
 Route::resource('comment', CommentController::class)->middleware('auth');
+
+Route::resource('products', ProductController::class)->middleware('auth');
+
+Route::post('/upload', [UploadFileController::class, 'store']);
+
